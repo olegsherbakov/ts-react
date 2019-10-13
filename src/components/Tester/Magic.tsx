@@ -11,13 +11,7 @@ function RenderEntry({ key, data: { uuid, attrs }, reducer }: Entry) {
         <b>uuid:</b> {uuid}
       </div>
       <div className="line">
-        <b>attributes:</b> {$attrs(attrs)}
-      </div>
-      <div className="line">
-        <b>magic:</b>
-      </div>
-      <div className="line">
-        <div>{$attrs(attrs, reducer)}</div>
+        <b>stringify: {$attrs(attrs, reducer)}</b>
       </div>
     </div>
   )

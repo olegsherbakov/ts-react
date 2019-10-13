@@ -19,14 +19,11 @@ export const $uuid = (): string => {
   )
 }
 
-export const stringifyHash = (o: object): string => {
-  return Object.keys(o).reduce((res: string, key: string) => {
-    // console.log(`o[key]`, o[key])
-    console.log(`key`, key)
-    console.log(`o`, o)
-
-    return `${res} "${key}": "??"`
-  }, ``)
+export const stringifyHash = (o: any): string => {
+  return Object.keys(o).reduce(
+    (res: string, key: string) => `${res} "${key}": "${o[key]}"`,
+    ``
+  )
 }
 
 export const $attrs = (attrs: object, reducer?: Function): string => {
