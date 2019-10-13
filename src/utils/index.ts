@@ -1,10 +1,10 @@
 export const $action = (...types: string[]): string => `@${types.join(` `)}`
 
-export const $uuid = (): string => {
-  function hex(s: string, b: number) {
-    return s + (b >>> 4).toString(16) + (b & 0b1111).toString(16)
-  }
+function hex(s: string, b: number) {
+  return s + (b >>> 4).toString(16) + (b & 0b1111).toString(16)
+}
 
+export const $uuid = (): string => {
   const r = crypto.getRandomValues(new Uint8Array(16))
 
   r[6] = (r[6] >>> 4) | 0b01000000
@@ -19,13 +19,11 @@ export const $uuid = (): string => {
   )
 }
 
-export const stringifyHash = (o: any): string => {
-  return Object.keys(o).reduce(
+export const stringifyHash = (o: any): string =>
+  Object.keys(o).reduce(
     (res: string, key: string) => `${res} "${key}": "${o[key]}"`,
     ``
   )
-}
 
-export const $attrs = (attrs: object, reducer?: Function): string => {
-  return stringifyHash(reducer ? reducer(attrs) : attrs)
-}
+export const $attrs = (attrs: object, reducer?: Function): string =>
+  stringifyHash(reducer ? reducer(attrs) : attrs)
