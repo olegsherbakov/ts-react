@@ -15,7 +15,7 @@ function Tester({ createEntry }: TesterProps) {
 
   return (
     <div>
-      <h2>Tester v1.0</h2>
+      <h2>Tester v1.0.1</h2>
       <button onClick={onClick}>click me for spell magic</button>
       <Magic />
     </div>

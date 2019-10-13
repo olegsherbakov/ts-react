@@ -19,8 +19,9 @@ export const createEntry = () => {
     const time: string = `${new Date().getTime()}`
     const colorHex = `#777`
     const attrs: IHash = { time, colorHex }
-    const reducer = (data: any) => {
-      // console.log(`#reducer`)
+    const reducer = (data: any): any => {
+      // console.log(`#reducer`, data)
+      // const current: number = +(new Date().getTime())
 
       return data
     }
