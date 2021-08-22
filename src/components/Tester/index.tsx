@@ -22,7 +22,4 @@ function Tester({ createEntry }: TesterProps) {
   )
 }
 
-export default connect(
-  ({}) => ({}),
-  { createEntry }
-)(Tester)
+export default connect(({}) => ({}), { createEntry })(Tester)

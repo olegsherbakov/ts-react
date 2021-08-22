@@ -2,7 +2,7 @@ import { EntriesState, Entry, ENTRIES, CREATE, CHANGE } from 'src/types'
 import { $action } from 'src/utils'
 
 const initEntries: EntriesState = {
-  entries: []
+  entries: [],
 }
 
 export default (
@@ -13,7 +13,7 @@ export default (
     case $action(ENTRIES, CREATE): {
       const { entries: entriesPrevious } = state
       const { newEntries } = payload
-      const entries: Entry[] = [ ...entriesPrevious, ...newEntries ]
+      const entries: Entry[] = [...entriesPrevious, ...newEntries]
 
       return {
         ...state,

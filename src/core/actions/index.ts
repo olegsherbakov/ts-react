@@ -2,18 +2,16 @@ import { IHash, Entry, CONFIG, APPLY, ENTRIES, CREATE } from 'src/types'
 import { $uuid, $action } from 'src/utils'
 
 export const bootstrapApp = () => {
-  return function(dispatch: any) {
+  return function (dispatch: any) {
     return dispatch({
       type: $action(CONFIG, APPLY),
-      payload: {
-
-      },
+      payload: {},
     })
   }
 }
 
 export const createEntry = () => {
-  return function(dispatch: any) {
+  return function (dispatch: any) {
     const uuid: string = $uuid()
     const key: string = uuid
     const time: string = `${new Date().getTime()}`
@@ -25,9 +23,7 @@ export const createEntry = () => {
 
       return data
     }
-    const newEntries: Entry[] = [
-      { key, data: { uuid, attrs }, reducer }
-    ]
+    const newEntries: Entry[] = [{ key, data: { uuid, attrs }, reducer }]
 
     return dispatch({
       type: $action(ENTRIES, CREATE),
